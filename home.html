@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="sidebars.css">
+    <link rel="stylesheet" href="on-hover.css">
+
+    <title>erGo | CS student</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+
+    <nav>
+        <div class="name">
+            <a href="#homeSection">Ernesto Gomez</a>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="#projectSection">Projects</a>
+            </li>
+            <li>
+                <a href="#aboutSection">About</a>
+            </li>
+            <li>
+                <a href="#contactSection">Contact</a>
+            </li>
+        </ul>
+
+        <!--only appears in mobile view-->
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section class="home-section" id="homeSection">
+        <video loop muted autoplay preload="auto">
+            <source src="imgs/Pixel-Koi-Pond.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="caption">
+            <h1>Hi, I'm<br>
+                    <span class="fav-color">Ernesto Gomez</span>,<br>
+                I build things</h1>
+            <p>CS student | art nerd</p>
+        
+        </div>
+    </section>
+            
+    <section class="projects-section" id="projectSection">
+
+        <div class="card">
+
+            <div class="caption">
+                <h1 class="fav-color">Projects</h1>
+            </div>
+
+            <div class="split space-around">
+
+                <div class="image">
+                    <img class="image_img" src="imgs/greenwatch home.png" alt="django logo">
+                    <div class="image_overlay2  image_overlay2--blur">
+                        <p class="img_descript">
+                                A full stack Machine learning lawn health notification system.
+                        </p> 
+                        <div class="button alt">
+                            <a href="https://greenwatch.eastus.cloudapp.azure.com/" target="_blank">
+                                    Learn more!
+                            </a>
+                        </div>    
+                    </div>
+                </div> 
+
+                <div class="project">
+                    <h3 class="greenwatch-color">Greenwatch</h3>
+                    <!-- <img src="imgs/greenwatch splash.png" alt="greenwatch"> -->
+                    <p>
+                        HTML, Bulma CSS, Javascript, Python, Django, PostgresSQL, Git, Jira
+                    </p>
+                </div>
+            
+            </div>
+
+            <div class="project-desc">
+                <p class="greenwatch-color">
+                    Worked with 4 other team members to design and develop a full stack Machine learning lawn health notification system. 
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+        
+    <section class="about-section" id="aboutSection">
+        <div class="card">
+            <h1 class="fav-color" >About me</h1>
+            <div class="split space-around">
+                <div>
+                    <p>
+                        Hello! My name is Ernesto and I enjoy making things for people to interact with.
+                        I am a senior studying computer science at California
+                        State University Northridge. I also work as a freelance artist
+                        and illustrator in my free time.
+                    </p>
+                </div>
+                <div>
+                    <img src="imgs/me.jpg" alt="pic of me">
+                </div>
+                
+            </div>
+            
+            <div >
+                <h3 class="fav-color">
+                    Languages I've been working with:
+                </h3>
+                <p>
+                    HTML, CSS, Javascript, C++, Java, Python
+                </p>
+                <h3 class="fav-color">
+                    Dev Tools:
+                </h3>
+                <p>
+                    Github, Django, Bulma
+                </p>
+            </div>
+            
+        </div>
+    </section>
+ 
+    <section class="contact-section" id="contactSection">
+        <div class="card">
+            <div class="caption">
+                <h1 class="fav-color">Contact me</h1>
+                <p>
+                    If you would like to chat, dont hesitate to contact me.
+                </p>
+                <div>
+                    <div class="email-link">
+                        <a class="email-link" href="mailto:gomezernesto55@gmail.com" target="_bank">
+                            Say Hello
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+              
+    
+
+
+    <div class="lSide">
+        <div class="media-logo">
+            <a href="https://github.com/ergoprocsee" target="_blank">
+                <svg role="img" class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+        </div>
+        <div class="media-logo">
+            <a href="https://www.linkedin.com/in/ernesto-gomez-938013242/" target="_blank">
+                <svg role="img" class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+        </div>
+        
+        <div class="vert-line"></div>
+    </div>
+
+
+    <div class="rSide">
+        <a class="email-side" href="mailto:gomezernesto55@gmail.com" target="_bank">
+            gomezernesto55@gmail.com
+        </a>
+        <div class="vert-line"></div>
+    </div>
+    
+
+    
+    <div class="footer">
+        <p>
+            Designed and built by Ernesto Gomez
+        </p>
+    </div>
+    
+    
+    <script src="navbar.js"></script>
+</body>
+
+
+
+
+</html>

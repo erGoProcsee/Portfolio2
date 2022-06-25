@@ -1,0 +1,144 @@
+/* double check all classes thigs are bugging out because there might be overlap with home.css */
+
+/* ____________ flexbox ___________________*/
+.hover-container { 
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	 
+}
+
+.hover-item {
+	/*min-height: 100px;*/
+	margin: 20px;
+	box-shadow: 0px 0px 10px #eee;
+	
+}
+
+
+/* ___________ images ____________*/
+/*whole image*/
+.image {
+	position: relative;
+	width: 600px;
+
+	margin-left: auto;
+  	margin-right: auto;
+
+	/* for the on hover y movement */
+	transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+	box-shadow: 6px 6px 20px -6px rgba(63, 92, 132, 0.58);
+}
+.image:hover {
+	/* moves the whole thing down right makes it smaller to add to illusion of moving away*/
+	transform: translate(7px, 7px) scale(.96);
+	 
+
+	/* remove the box shadow on bottom and left sides*/
+	box-shadow: none;
+
+	/*make it smaller to add to illusion of moving away*/
+	/* -webkit-transform: scale(.98);  */
+}
+
+
+
+/*the style for the actual image*/
+.image_img {
+	display: block;
+	min-width: 600px; 
+	width: 100%; /*to take up the max width of 400px of .image*/
+}
+
+/* ----------------------- IMAGE OVERLAY 2 ------------------------------ */
+/* styles blur and text over the image */
+.image_overlay2 {
+	position: absolute; /*works with the position of .image*/
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+
+	background: radial-gradient(circle, rgba(43,91,82,0.85) 0%, rgba(2,29,22,0.9) 40%, rgba(0,11,19,0.9528011888349089) 100%);
+	
+
+	/*text formating*/
+	color: #ffffff;
+	text-shadow: 2px 2px 4px #000000;
+	font-family: 'Quicksand', sans-serif;
+
+	/* __________ blur effect ___________ */
+	/*not supported on certain browsers*/
+	backdrop-filter: blur(5px);
+
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+
+	/* _______ stuff for the actual transitions _________*/
+
+	/*originally 0 so it is hidden by default*/
+	opacity: 0;
+	/*opacity transitions at a slower speed*/
+	transition: opacity 0.35s;
+}
+
+/* _______ stuff for the text to come up _________*/
+/*Target every direct child of .image_overlay 
+so, .image_title and .image_description*/
+.image_overlay2 > * {
+	transform: translateY(20px);
+	transition: transform 0.25s;/*same time as the opacity*/
+}
+
+/* ___________ When the image gets hovered over __________*/
+.image_overlay2:hover {
+	/*shows the overlay when hovering over*/
+	opacity: 1;
+}
+
+/*target the child elements .image_title and .image_description*/
+.image_overlay2:hover > * {
+	/*allows it to start at the bottom*/
+	transform: translateY(0);
+}
+
+/* ----------------------- IMAGE OVERLAY 2 ------------------------------ */
+
+
+
+
+
+/* _________styles the description _____________ */
+.img_descript {
+	/*1.25 times the current font size*/
+	font-size: 120%;
+	color: white;
+	margin: 10px;
+	text-align: center;
+	/*to decrease the distance between the title and the 
+	description*/
+}
+
+/* _________ button styling _____________ */
+.button.alt a {
+	/* to prevent overlap */
+	display: inline-block;
+
+	background: rgba(255,255,255,0.15);
+	border-radius: 3px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	padding: 16px 50px;
+	
+	text-shadow: none;
+	color: white;
+}
+
+.button.alt a:hover {
+	background: #fff;
+	color: #23d160;
+}

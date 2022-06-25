@@ -1,0 +1,94 @@
+
+
+
+
+.lSide {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  z-index: 25;
+
+  /*flush to the bottom to imply content below*/
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+   
+}
+.media-logo{
+  margin-top: 10px; 
+
+
+}
+.media-logo:hover{
+  transform: translateY(-4px); 
+}
+
+
+.rSide {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  z-index: 25;
+
+  text-align: center;
+
+  /*flush to the bottom to imply content below*/
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  
+}
+.email-side {
+  writing-mode: vertical-rl;
+
+  letter-spacing: 0.1em;
+  color: var(--light);
+
+  transition: transform 0.5s ease-in,
+  color 0.3s ease-in-out;
+    
+}
+.email-side:hover {
+  transform: translateY(-4px);
+  color: var(--primary);
+}
+
+
+
+.vert-line {
+  border-left: 1px solid var(--light);
+  border-right: 1px solid var(--light);
+  height: 100px;
+
+   /*flush to the bottom to imply content below*/
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  
+}
+
+.logo {
+  margin-top: 8px; 
+  fill: white;
+  width: 30px;
+
+  transition: transform 0.5s ease-in,
+  fill 0.3s ease-in-out;
+}
+.logo:hover {
+  
+  transform: translateY(-4px);
+  fill: var(--primary);
+
+}
+
+@media screen and (max-width:768px) {
+  .lSide, 
+  .lSide > * {
+    visibility: hidden;
+  }
+  .rSide, 
+  .rSide > * {
+    visibility: hidden;
+  }
+}
