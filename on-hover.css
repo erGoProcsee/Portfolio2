@@ -20,7 +20,8 @@
 /*whole image*/
 .image {
 	position: relative;
-	width: 600px;
+	/* width: 600px; */
+	max-width: 100%;
 
 	margin-left: auto;
   	margin-right: auto;
@@ -47,7 +48,8 @@
 /*the style for the actual image*/
 .image_img {
 	display: block;
-	min-width: 600px; 
+	/* min-width: 600px;  */
+	max-width: 100%;
 	width: 100%; /*to take up the max width of 400px of .image*/
 }
 
