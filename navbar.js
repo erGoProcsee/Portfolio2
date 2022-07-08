@@ -1,46 +1,70 @@
-//function navSlide is equal to an anonymous fuction
-const navSlide = () => {
-    //get the burger and nav
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    //get the individual links
-    const navLinks = document.querySelectorAll('.nav-links li')
-    
+// _____________ TODO _________
+const nav = document.querySelector('.nav');
+const burger = document.querySelector('.burger');
+//get the individual links
+const navLinks = document.querySelectorAll('.nav-links li');
 
-    
-    //listen for click of burger
-    burger.addEventListener('click', ()=>{
-        //Toggle Nav
-        //when we click on the burger we want the nav link to get the class
-        // of nav active
-        nav.classList.toggle('nav-active');
+//Not clicking links or nav closes nav
+document.onclick = function(e){
+    console.log(e.target);
+    //If these ids arent clicked...
+    if((e.target.id !== 'header') && (e.target.id !== 'burger') &&
+     (e.target.id !== 'nav') && (e.target.id !== 'nav-links') &&
+      (e.target.id !== 'nav-links') && (e.target.id !== 'nav-links')){
+        //...hide the nav.
+        nav.firstElementChild.setAttribute('nav-visible', false);
+        burger.setAttribute('burger-active', false);
 
-
-        //Animate Links
-        //for each link we run a fuction
-        navLinks.forEach((link, index) =>{
-        // Template literals are literals delimited with backtick (`) 
-        // characters, allowing for multi-line strings, for string 
-        // interpolation with embedded expressions, and for special
-        // constructs called tagged templates
-
-        //if the animation already exists it gets replaced with nothing
-            if (link.style.animation) {
-                link.style.animation = ''
-            }
-            else {
-                //otherwise we add an animation
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 5 + .5}s`;
-            }
-        
+        // take away the animation
+        navLinks.forEach((link, index) =>{ 
+            link.style.animation = '';
         })
-        // --------burger animation ----------
-        //when clicking on the burger we toggle the toggle class
-        burger.classList.toggle('toggle')
+    }
+    
+}
 
-    })
+
+//Slide the nav back in from the right
+burger.addEventListener('click', (event) => {
+    // grab the attribute, its a string
+    const visible = nav.firstElementChild.getAttribute('nav-visible');
+
+    // grab the burger attribute, use this later for off menu click maybe?
+    // const visibleBurg = burger.getAttribute('burger-active');
+
+
+    // ----------------- Make nav visible if burger is clicked. ---------------------
+    //Check if the string is set to  "false"
+    if (visible === "false") {
+        // set the attribute to true, the css applies, making the
+        //  mobile nav slide out.
+        nav.firstElementChild.setAttribute('nav-visible', true);
+        burger.setAttribute('burger-active', true);
+        
+        //Animate Links
+        navLinks.forEach((link, index) =>{ 
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 5 + .2}s`;
+        })
+    }
+    // --------------- Hide the nav if the burger is clicked again. ---------------
+    else if (visible === "true") {
+        // If the nav is already out and the burger is clicked again
+        // then we close everything
+        nav.firstElementChild.setAttribute('nav-visible', false);
+        burger.setAttribute('burger-active', false);
+        
+        // take away the animation
+        navLinks.forEach((link, index) =>{ 
+            link.style.animation = ''; 
+        })
+    }
+
+    
+})
+
 
     
 
-}
-navSlide();
+
+
+

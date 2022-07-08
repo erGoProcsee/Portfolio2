@@ -14,6 +14,9 @@
   --secondary: #ed3200 ;
   --light: #EEEEEE;
   --dark: #212121;
+  --waterBlueMid: #022332;
+  --waterBlueDark: #011626;
+  
   --greenwatch: #23d160;
 }
 
@@ -31,7 +34,7 @@ html {
 }
 
 body {
-  background-color:#000b13;
+  background-color:var(--waterBlueDark);
   padding-top: 65px; /*height of sticky header is 8vh*/
 
   font-weight: 300;
@@ -158,7 +161,7 @@ are recommended due to consistency across browsers */
 
 
 
-/*hello section*/
+/* _____________________ home section ________________________*/
 .home-section {
   /*streches the full height of the browser*/
   height: 100vh;
@@ -178,7 +181,7 @@ are recommended due to consistency across browsers */
   position:absolute;
   top: 65px; /*height of sticky header is 8vh*/
   left:0;
-  background: rgba(0,0,0,0.5);
+  /* background: rgba(0,0,0,0.5); */
   z-index: 10;
 }
 .home-section video{
@@ -192,39 +195,24 @@ are recommended due to consistency across browsers */
 }
 .home-section .caption {
   position: relative;
-  z-index: 20;/*text will be on top of the layer 
-  5 z-index*/
-
+  z-index: 20;/*text will be on top of the layer  5 z-index*/
   text-align: center;
   color: white;
-  
 }
 
 
-
-/*projects section*/
+/* ____________________________ Projects section ___________________________*/
 .projects-section {
-  /* display:flex; */
   align-items: center;
   justify-content: center;
-  background-color:#000b13;
+  background-color:var(--waterBlueDark);
 }
 .projects-section .caption {
   position: relative;
   text-align: center;
 }
-.projects {
-  /* display: flex;
-  flex-direction: row;aligns elements horizontally */
-}
 .project {
-  /* display: flex;
-  flex-direction: column; */
-  
   align-items: center;
-}
-.project:hover {
-  /* transform: translateY(-4px); */
 }
 .project img {
   max-width: 300px;
@@ -235,19 +223,19 @@ are recommended due to consistency across browsers */
 }
 
 
-/*about me section*/
+/* _________________________ About me section ___________________________*/
 .about-section {
-  background-color: #011119;
+  background-color: var(--waterBlueMid);
 }
 
-
-/*contact section*/
+/* _________________________ Contact section ________________________________*/
 .contact-section {
-  
   display:flex;
   align-items: center;
-  justify-content: center;
-  background-color:#000b13;
+  background-color:var(--waterBlueDark);
+
+  padding-bottom: 0;
+
   
 }
 .contact-section .caption {
@@ -255,13 +243,7 @@ are recommended due to consistency across browsers */
   text-align: center;
 }
 
-
-
-
-
-
-
-/* email link button */
+/* ----------  email link button ------------*/
 .email-link a {
   /* to prevent overlap */
   display: inline-block;
@@ -271,7 +253,7 @@ are recommended due to consistency across browsers */
   font-weight: bold;
   border-radius: 3px;
 
-  margin: 10px;
+  margin-top: 100px;
 
   padding-top: 20px;
   padding-bottom: 20px;
@@ -297,13 +279,13 @@ are recommended due to consistency across browsers */
   
 }
 
-
+/* ____________________________ Footer ______________________________ */
 
 
 .footer p{
   color:var(--primary);
   text-align: center;
-  
+  margin-top: 0;
 }
 
 

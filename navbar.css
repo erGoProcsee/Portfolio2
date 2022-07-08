@@ -1,10 +1,9 @@
-/*------------ TO DO ---------------*/
-/*animate hamburger*/
+/* ----------- TO DO ---------- */
+/* more responsive text sizing for mobile */
 
-nav{
+header{
   background-color: var(--secondary);
   
-
   /*top of page always*/
   position: fixed;
   top: 0px;
@@ -13,152 +12,190 @@ nav{
   z-index: 99;
 
   display: flex;
-  /*spaces the content across the current container*/
-  justify-content: space-around;
-  /*aligns items vertically*/
   align-items: center;
+  
+  justify-content: space-between;
+  
 
   min-height: 8vh;
-
 }
 
-.name {
+
+/* __________________________  Logo _____________________________ */
+.logo {
   color: var(--light);
-
-  /*makes all text uppercase*/
-  text-transform: uppercase;
-
+  font-size: 1.45em;
+  font-weight: bold;
   letter-spacing: 5px;
 
-  font-size: 20px;
-  width: 30px;
+  
+  /* justify-content: center; */
+  display: flex; 
+  align-items: stretch;
+  /* padding on the sides will never get smaller than 3rem
+  or bigger than 10rem */
+  padding-inline: clamp(3rem, 5vw, 10rem); 
+  
+  text-shadow: 2px 2px red;
+
+  transition: all 0.3s ease-in-out;
 }
-.name a{
-  font-weight: bold;
-  color: white;
-}
-.name a:hover{
-  color: var(--primary);
+.logo:hover{
+  color: var(--waterBlueMid);
+  transform: translateY(-2px);
 }
 
-.nav-links {
 
+/* __________________________  Burger _____________________________ */
+.nav-active {
+  /*When the burger container is clicked move the offscreen menu back*/
+  transform: translateX(0%);
+}
+.burger {
+  margin-right: 1rem; 
+  /*When not in a mobile screen size the burger is hidden */
+  display: none;
+  /* background-color: teal; */
+}
+/*When hovering on the parent, all the children change */
+.burger:hover div{
+  background-color: var(--waterBlueMid);
+  transform: translateY(-2px);
+}
+.burger div{
+  /*applies to each line in the burger icon*/
+  background-color: var(--light);
+  width: 25px;
+  height: 3px;
+  margin: 3px;
+  /* the individual lines dont need to be clickable, the container does */
+  pointer-events: none;
+  /*animation*/
+  transition: all 0.3s ease-in-out;
+}
+
+/*-------------- burger animation --------------*/
+/* translate() is finicky, need to find a better method */
+.burger[burger-active='true'] .line1 {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+.burger[burger-active='true'] .line2 {
+  opacity: 0;
+  transform: translateX(-7px);
+}
+.burger[burger-active='true'] .line3 {
+  transform: rotate(45deg) translate(-6px, -7px);
+}
+
+
+/* __________________________  Nav links  _____________________________ */
+/* class on the <ul> */
+.nav-links { 
   display: flex;
-    
-  /*together these two decompresses the links*/
-  justify-content: space-around;
-  width: 40%;
-
-
+  flex: 1;
+  justify-content: center;
+  align-items: stretch;  
+  gap: 1rem;
+}
+.nav-links li{ 
+  display: inherit;
+  list-style: none;
+}
+.nav-links li:hover{ /*move the container*/
+  transform: translateY(-2px);
 }
 .nav-links a{
   color: var(--light);
-  
-  /*gets rid of underline for links*/
   text-decoration: none;
-
-  letter-spacing: 3px;
-
-  /*
+  letter-spacing: 4px;
   font-weight: bold;
-  font-size: 14px;
-  */
-}
-.nav-links a:hover{
-  color: var(--primary);
-}
+  text-shadow: 2px 2px red;
 
-.nav-links li {
-  /*removes bullet points*/
-  list-style: none;
-}
-
-.burger {
-  /*hides burger "icon" until you use mobile view*/
-  display: none;
-}
-/* on hovering the parent all the children change */
-.burger:hover div{
-  background-color: var(--primary);
-}
-
-/*selects all divs inside of the burger element*/
-.burger div{
+  /* transition is handled by js */
+  transition: all 0.3s ease-in-out;
   
-  /*determines the dimensions of each line in the burger icon*/
-  width: 25px;
-  height: 3px;
-  background-color: var(--light);
-  margin: 5px;
-
-  /*burger animation*/
-  transition: all 0.3s ease;
+}
+.nav-links a:hover{/*change the color of text*/
+  color: var(--waterBlueMid);
+}
+.test {
+  min-height: 8vh;
+}
+@media (min-width: 42em) {
+  .nav-links{
+      /* changes the space in between the links */
+      gap: clamp(1.5rem, 6vw, 10rem);
+      
+      /* padding on the sides will never get smaller than 3rem
+      or bigger than 10rem */
+      padding-inline: clamp(3rem, 10vw, 10rem);
+  }
 }
 
 
+/* ______________________________  MOBILE  _____________________________ */
 
+@media screen and (max-width:42em){
+  
+  .nav-links { 
+    position: fixed;
+    right: 0px;
 
-/* -------- MOBILE STUFF  ------------------
-@media rule is used in media queries to apply
-different styles for different media types/devices */
+    /* spread out in mobile */
+    justify-content: space-around;
 
-@media screen and (max-width:1024px) {
-  .nav-links {
-      width: 60%;
+    /*for full screen effect*/
+    height: 92vh;
+
+    /*places it right under the nav bar*/
+    top: 8vh;
+
+    /* nice gradient */
+    background: rgb(254,145,29);
+    background: linear-gradient(0deg, rgba(254,145,29,1) 0%, rgba(237,50,0,1) 100%);
+    /*allow the menu to spill down*/
+    display: flex;
+    flex-direction: column;
+
+    /*use this instead of justify-content: center  because the 
+    flex direction was changed so the order changes*/
+    align-items: center;
+
+    /*how much of the screen should it take up*/
+    width: 50%;
+
+    /*In mobile view the container is off the screen, it gets
+     set to 0, moving it back on the screen, when you click burger*/
+    transform: translateX(100%);
+
+    /*transition to make the container appear smoothly*/
+    transition: transform 0.4s ease-out;
   }
-}
-
-@media screen and (max-width:768px){
-
-  body {
-      overflow-x: hidden;
+  /*The mobile nav slides out when it gets assigned true*/
+  .nav-links[nav-visible='true'] {
+    /* we pull out the mobile nav */
+    transform: translateX(0%);
   }
-
-  .nav-links {
-      /**/
-      position: absolute;
-      right: 0px;
-
-      /*for full screen effect*/
-      height: 92vh;
-
-      /*places it right under the nav bar*/
-      top: 8vh;
-
-      background-color: var(--secondary);
-
-      /*allow the menu to spill down*/
-      display: flex;
-      flex-direction: column;
-
-      /*use this instead of justify-content: center  because the 
-      flex direction was changed so the order changes*/
-      align-items: center;
-
-      /*how much of the screen should it take up*/
-      width: 50%;
-
-      /*to move the container off the screen, is set to 0 when you click burger*/
-      transform: translateX(100%);
-
-      /*transition to make the container appear smoothly*/
-      transition: transform 0.5s ease-in;
-  }
+  /* for the fade in from right effect they are initially not visible */
   .nav-links li {
-      opacity: 0;
+    opacity: 0;
+    padding: 1em;
   }
   .burger {
-      /*when switching to a mobile view you can see the burger*/
-      display: block;
-      cursor: pointer;
+    cursor: pointer;
+    /*in a mobile screen size you can see the burger*/
+    display: flex;
+    /* centering the lines inside the burger */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    /* creates a square, increase/decrease the width to change size*/
+    aspect-ratio: 1;  
+    width: 3rem;  
   }
 }
 
 
-.nav-active {
-  /*when you click on burger container is moved back onto the screen*/
-  transform: translateX(0%);
-}
 
 
 /*an animation to make the nav links appear*/
@@ -174,14 +211,3 @@ different styles for different media types/devices */
   }
 }
 
-/*burger animation*/
-.toggle .line1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-.toggle .line2 {
-  opacity: 0;
-  transform: translateX(7px);
-}
-.toggle .line3 {
-  transform: rotate(45deg) translate(-5px, -6px);
-}

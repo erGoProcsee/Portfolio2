@@ -1,6 +1,4 @@
-
-
-
+/* Styles for the side bars */
 
 .lSide {
   position: fixed;
@@ -11,18 +9,17 @@
   /*flush to the bottom to imply content below*/
   margin-top: 20px;
   margin-left: 20px;
-  margin-right: 20px;
-   
+  margin-right: 20px; 
 }
-.media-logo{
+.media-icon{
   margin-top: 10px; 
-
-
 }
-.media-logo:hover{
-  transform: translateY(-4px); 
+.media-icon:hover{
+  transform: translateY(-4px);
+  /* drop-shadow(offset-x offset-y blur-radius color) */
+  /* filter: drop-shadow(0px 5px 1px var(----secondary));  */
+  filter: drop-shadow( 0px 3px 2px rgba(0, 0, 0, .7));
 }
-
 
 .rSide {
   position: fixed;
@@ -30,7 +27,7 @@
   bottom: 0px;
   z-index: 25;
 
-  text-align: center;
+  /* text-align: center; */
 
   /*flush to the bottom to imply content below*/
   margin-top: 20px;
@@ -42,7 +39,8 @@
   writing-mode: vertical-rl;
 
   letter-spacing: 0.1em;
-  color: var(--light);
+  font-weight: bold;
+  color: var(--secondary);
 
   transition: transform 0.5s ease-in,
   color 0.3s ease-in-out;
@@ -51,13 +49,14 @@
 .email-side:hover {
   transform: translateY(-4px);
   color: var(--primary);
+  text-shadow: 0px 3px 2px rgba(0, 0, 0, .7);
 }
 
 
 
 .vert-line {
-  border-left: 1px solid var(--light);
-  border-right: 1px solid var(--light);
+  border-left: 1px solid var(--secondary);
+  border-right: 1px solid var(--secondary);
   height: 100px;
 
    /*flush to the bottom to imply content below*/
@@ -67,15 +66,15 @@
   
 }
 
-.logo {
+.icon {
   margin-top: 8px; 
-  fill: white;
+  fill: var(--secondary);
   width: 30px;
 
   transition: transform 0.5s ease-in,
   fill 0.3s ease-in-out;
 }
-.logo:hover {
+.icon:hover {
   
   transform: translateY(-4px);
   fill: var(--primary);
