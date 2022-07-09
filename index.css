@@ -214,13 +214,11 @@ are recommended due to consistency across browsers */
 .project {
   align-items: center;
 }
-.project img {
-  max-width: 300px;
-}
 .project-desc p{
   padding: 3em;
   font-size: 1.2em;
 }
+/* For the img and overlay, refer to the on-hover file */
 
 
 /* _________________________ About me section ___________________________*/
@@ -281,7 +279,9 @@ are recommended due to consistency across browsers */
 
 /* ____________________________ Footer ______________________________ */
 
-
+.footer p{
+  margin-bottom: 0px;
+}
 .footer p{
   color:var(--primary);
   text-align: center;

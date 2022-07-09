@@ -1,5 +1,21 @@
 /* Styles for the side bars */
 
+/* __________________ Vertical lines ______________________ */
+.vert-line {
+  border-left: 2px solid var(--primary);
+  
+  height: 100px;
+
+   /*flush to the bottom to imply content below*/
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  filter: drop-shadow( 1px 3px 2px rgba(0, 0, 0, .7));
+}
+
+
+/* __________________________ Left Side _________________________ */
 .lSide {
   position: fixed;
   left: 0px;
@@ -11,83 +27,97 @@
   margin-left: 20px;
   margin-right: 20px; 
 }
+/* ----------------- Media icons ------------ */
+/* a container for icons */
 .media-icon{
-  margin-top: 10px; 
+  margin-top: 10px;  
 }
-.media-icon:hover{
-  transform: translateY(-4px);
-  /* drop-shadow(offset-x offset-y blur-radius color) */
-  /* filter: drop-shadow(0px 5px 1px var(----secondary));  */
-  filter: drop-shadow( 0px 3px 2px rgba(0, 0, 0, .7));
-}
-
-.rSide {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  z-index: 25;
-
-  /* text-align: center; */
-
-  /*flush to the bottom to imply content below*/
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  
-}
-.email-side {
-  writing-mode: vertical-rl;
-
-  letter-spacing: 0.1em;
-  font-weight: bold;
-  color: var(--secondary);
-
-  transition: transform 0.5s ease-in,
-  color 0.3s ease-in-out;
-    
-}
-.email-side:hover {
-  transform: translateY(-4px);
-  color: var(--primary);
-  text-shadow: 0px 3px 2px rgba(0, 0, 0, .7);
-}
-
-
-
-.vert-line {
-  border-left: 1px solid var(--secondary);
-  border-right: 1px solid var(--secondary);
-  height: 100px;
-
-   /*flush to the bottom to imply content below*/
-  margin-top: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-  
-}
-
+/* class on the svg */
 .icon {
   margin-top: 8px; 
-  fill: var(--secondary);
+  fill: var(--primary);
+  filter: drop-shadow( 1px 3px 2px rgba(0, 0, 0, .7));
   width: 30px;
 
   transition: transform 0.5s ease-in,
   fill 0.3s ease-in-out;
 }
 .icon:hover {
-  
   transform: translateY(-4px);
-  fill: var(--primary);
-
+  filter: drop-shadow( 2px 5px 3px rgba(0, 0, 0, .8));
+  fill: var(--secondary);
 }
 
-@media screen and (max-width:768px) {
+/* __________________________ Right Side _________________________ */
+.rSide {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  z-index: 25;
+  /*flush to the bottom to imply content below*/
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px; 
+}
+/* ----------------- Email link ------------ */
+.email-side {
+  writing-mode: vertical-rl;
+
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  color: var(--primary);
+  text-shadow: 0px 3px 2px rgba(0, 0, 0, .7);
+
+  transition: transform 0.5s ease-in,
+  color 0.3s ease-in-out;
+}
+.email-side:hover {
+  transform: translateY(-4px);
+  color: var(--secondary);
+  text-shadow: 2px 5px 3px rgba(0, 0, 0, .8);
+  
+}
+
+
+
+
+
+
+/* __________________________________ Mobile _________________________________ */
+@media screen and (max-width:42em) {
   .lSide, 
   .lSide > * {
-    visibility: hidden;
+    /* visibility: hidden; */
+    position: static;
+    right: auto;
+    bottom: auto;
+    display: flex;
+    justify-content: center;
+
+    /* margin: top/bottom  left/right; */
+    margin: 10px 15px;
+
   }
+  .icon {
+    width: 50px;
+    fill: var(--secondary);
+  }
+  .icon:hover {
+    width: 50px;
+    fill: var(--primary);
+  }
+
+  .vert-line {
+    margin: 0px;
+    height: 0px;
+  }
+
+
   .rSide, 
   .rSide > * {
     visibility: hidden;
   }
+  /* .vert-line {
+    visibility: hidden;
+  } */
 }
